@@ -9,8 +9,6 @@ import { AppComponent } from './app.component';
 
 import { PpalComponent } from './ppal/ppal.component';
 import { HomeComponent } from './home/home.component';
-import { StudentsComponent } from './students/students.component';
-import { TeachersComponent } from './teachers/teachers.component';
 import { LoginComponent } from './login/login.component';
 
 import { AuthService } from './services/auth.service';
@@ -20,6 +18,9 @@ import { TeachersService } from './services/teachers.service';
 import { CoursesService } from './services/courses.service';
 
 import { CoursesModule } from './courses/courses.module';
+import { StudentsModule } from './students/students.module';
+import { TeachersModule } from './teachers/teachers.module';
+
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -27,8 +28,6 @@ import { SharedModule } from './shared/shared.module';
     AppComponent,
     PpalComponent,
     HomeComponent,
-    StudentsComponent,
-    TeachersComponent,
     LoginComponent
   ],
   imports: [
@@ -37,6 +36,8 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     HttpModule,
     CoursesModule,
+    StudentsModule,
+    TeachersModule,
     SharedModule
   ],
   providers: [
@@ -44,7 +45,9 @@ import { SharedModule } from './shared/shared.module';
     AuthGuardService,
     StudentsService,
     TeachersService,
-    CoursesService
+    CoursesService,
+    StudentsModule,
+    TeachersModule
   ],
   bootstrap: [AppComponent]
 })
