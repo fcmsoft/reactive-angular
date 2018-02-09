@@ -1,0 +1,13 @@
+<div tdMediaToggle="gt-xs" [mediaClasses]="['push-md']">
+  <mat-card>
+    <mat-nav-list flex>
+        <a mat-list-item routerLink="/courses/{{item.id}}" *ngFor="let item of courses | async; let i = index">
+          <mat-icon *ngIf="item.active">check</mat-icon>
+          <mat-icon *ngIf="!item.active">cancel</mat-icon>
+          <h4 matLine class="cursor-pointer"> {{item.title}}  </h4>
+          <p matLine class="cursor-pointer"> {{item.short_description}}  </p>
+          <button mat-icon-button matTooltip="Edit course"><mat-icon>edit</mat-icon></button>
+        </a>
+    </mat-nav-list>
+  </mat-card>
+</div>
