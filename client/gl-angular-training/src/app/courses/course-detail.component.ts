@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../services/courses.service';
 
 @Component({
-  selector: 'gl-courses',
-  templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.css']
+  selector: 'gl-course-detail',
+  templateUrl: './course-detail.component.html',
+  styleUrls: ['./course-detail.component.css']
 })
-export class CoursesComponent implements OnInit {
+export class CourseDetailComponent implements OnInit {
 
   courses = this.coursesService.getAll();
   constructor(private coursesService: CoursesService) { }

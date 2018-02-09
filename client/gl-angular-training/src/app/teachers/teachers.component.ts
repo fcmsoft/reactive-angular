@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TeachersService } from '../teachers.service';
+import { TeachersService } from '../services/teachers.service';
 
 @Component({
   selector: 'gl-teachers',
