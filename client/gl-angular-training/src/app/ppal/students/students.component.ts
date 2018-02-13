@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentsService } from '../services/students.service';
+import { StudentsService } from '../../services/students.service';
 
 @Component({
   selector: 'gl-students',
