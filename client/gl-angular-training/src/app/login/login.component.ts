@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form);
     this.authService.login(form.value.username, form.value.password)
       .subscribe(
         (logged) => {

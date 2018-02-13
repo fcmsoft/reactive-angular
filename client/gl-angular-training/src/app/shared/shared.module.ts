@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RoutingModule } from '../routing.module';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatButtonModule, MatListModule, MatIconModule, MatCardModule, MatMenuModule, MatInputModule, MatButtonToggleModule,
@@ -56,7 +56,7 @@ import { MatButtonModule, MatListModule, MatIconModule, MatCardModule, MatMenuMo
         CovalentMenuModule,
      //   CovalentDataTableModule,
      //   CovalentMessageModule,
-        RoutingModule,
+
         HttpClientModule
     ],
     providers: [],

@@ -4,12 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { TeachersComponent } from './teachers.component';
+import { TeachersRoutingModule } from './teachers.routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    TeachersRoutingModule
   ],
   declarations: [
     TeachersComponent

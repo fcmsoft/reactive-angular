@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { CoursesComponent } from './courses.component';
 import { CourseDetailComponent } from './course-detail.component';
+import { CoursesRoutingModule } from './courses.routing.module';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { CourseDetailComponent } from './course-detail.component';
     imports: [
         CommonModule,
         FormsModule,
-        SharedModule
+        SharedModule,
+        CoursesRoutingModule
     ],
     exports: [],
     providers: [],
