@@ -6,16 +6,16 @@ import 'rxjs/add/operator/map';
 
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs/Observable';
-
+import { Person } from '../models/person';
 
 @Injectable()
 export class StudentsService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  getAll(): Observable<any> {
+  getAll(): Observable<Person[]> {
     const token = this.authService.getToken();
     const headers = new HttpHeaders({'token': token});
-    return this.http.get('http://localhost:3001/students', {headers: headers});
+    return this.http.get<Person[]>('http://localhost:3001/students', {headers: headers});
   }
 }

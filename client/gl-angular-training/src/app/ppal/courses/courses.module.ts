@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from '../../shared/shared.module';
 
-
 import { CoursesComponent } from './courses.component';
 import { CourseDetailComponent } from './course-detail.component';
 import { CoursesRoutingModule } from './courses.routing.module';

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Response } from '@angular/http/src/static_response';
 import 'rxjs/add/operator/map';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class AuthService {
@@ -43,5 +44,9 @@ export class AuthService {
 
   getToken() {
     return this.token;
+  }
+
+  getHeader() {
+    return new HttpHeaders({'token': this.getToken()});
   }
 }

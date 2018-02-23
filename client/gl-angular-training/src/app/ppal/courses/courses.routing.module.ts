@@ -6,7 +6,7 @@ import { CourseDetailComponent } from './course-detail.component';
 
 const routes: Routes = [
   { path: '', component: CoursesComponent },
-  { path: '/:id', component: CourseDetailComponent },
+  { path: ':id', component: CourseDetailComponent },
 
 ];
 
