@@ -1,0 +1,19 @@
+<mat-card *ngIf="this.teacher">
+    <mat-card-title>Teacher Detail</mat-card-title>
+    <mat-card-content>
+        <h2>{{this.teacher.first_name}} {{this.teacher.last_name}}</h2>
+        <p>Email: {{this.teacher.email}}</p>
+        <p>Birthday: {{this.teacher.profile.birthday | date:short}}</p>
+        <hr>
+        <h3>Contact</h3>
+        <p>Street: {{this.teacher.profile.contact.street}}</p>
+        <p>State: {{this.teacher.profile.contact.state}}</p>
+        <p>Country: {{this.teacher.profile.contact.country}}</p>
+        <p>City: {{this.teacher.profile.contact.city}}</p>
+        <p>Zip: {{this.teacher.profile.contact.zip}}</p>
+        <p>Phone: {{this.teacher.profile.contact.phone}}</p>
+        <hr>
+
+    </mat-card-content>
+</mat-card>
+

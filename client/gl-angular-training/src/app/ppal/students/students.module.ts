@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 import { StudentsComponent } from './students.component';
 import { StudentsRoutingModule } from './students.routing.module';
-
+import { StudentDetailComponent } from './student-detail.component';
 
 @NgModule({
   imports: [
@@ -15,7 +15,8 @@ import { StudentsRoutingModule } from './students.routing.module';
     StudentsRoutingModule
   ],
   declarations: [
-    StudentsComponent
+    StudentsComponent,
+    StudentDetailComponent
   ]
 })
 export class StudentsModule { }

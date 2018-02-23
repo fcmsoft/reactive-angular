@@ -3,4 +3,5 @@ export interface Person {
     first_name: String;
     last_name: String;
     email: String;
+    profile_id: String;
 }

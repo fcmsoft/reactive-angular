@@ -1,0 +1,19 @@
+<mat-card *ngIf="this.student">
+    <mat-card-title>Student Detail</mat-card-title>
+    <mat-card-content>
+        <h2>{{this.student.first_name}} {{this.student.last_name}}</h2>
+        <p>Email: {{this.student.email}}</p>
+        <p>Birthday: {{this.student.profile.birthday | date:short}}</p>
+        <hr>
+        <h3>Contact</h3>
+        <p>Street: {{this.student.profile.contact.street}}</p>
+        <p>State: {{this.student.profile.contact.state}}</p>
+        <p>Country: {{this.student.profile.contact.country}}</p>
+        <p>City: {{this.student.profile.contact.city}}</p>
+        <p>Zip: {{this.student.profile.contact.zip}}</p>
+        <p>Phone: {{this.student.profile.contact.phone}}</p>
+        <hr>
+
+    </mat-card-content>
+</mat-card>
+
