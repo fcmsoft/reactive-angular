@@ -1,6 +1,6 @@
-import { Teacher } from './teacher';
-import { Student } from './student';
+
 import { Observable } from 'rxjs/Observable';
+import { Person } from './person';
 
 export interface Course {
     id: String;
@@ -9,7 +9,7 @@ export interface Course {
     detail: String;
     active: Boolean;
     teacher?: String;
-    teacherDetails?: {} | Teacher;
+    teacherDetails?: {} | Person;
     students: Array<String>;
-    studentsDetails?: Array<Observable<Student>>;
+    studentsDetails?: Array<Observable<Person>>;
 }

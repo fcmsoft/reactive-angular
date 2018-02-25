@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentsService } from '../../services/students.service';
+import { PersonDataService } from '../../services/person-data.service';
 
 @Component({
   selector: 'gl-students',
@@ -7,8 +7,8 @@ import { StudentsService } from '../../services/students.service';
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
-  students = this.studentsService.getAll();
-  constructor(private studentsService: StudentsService) { }
+  students = this.dataService.getAll('students');
+  constructor(private dataService: PersonDataService) { }
 
   ngOnInit() {
 

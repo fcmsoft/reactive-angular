@@ -12,8 +12,7 @@ import { AuthService } from './auth.service';
 import { HttpClient } from '@angular/common/http';
 
 import { Course } from '../models/course';
-import { Teacher } from '../models/teacher';
-import { Student } from '../models/student';
+import { PersonDetail } from '../models/person-detail';
 
 @Injectable()
 export class CoursesService {
@@ -25,9 +24,9 @@ export class CoursesService {
     return this.http.get<Course[]>('http://localhost:3001/courses', {headers: this.authService.getHeader()});
   }
 
-  getCourseTeacher(active: Boolean, id: String): Observable<Teacher | {}> {
+  getCourseTeacher(active: Boolean, id: String): Observable<PersonDetail | {}> {
     if (active) {
-      return this.http.get<Teacher>('http://localhost:3001/teachers/' + id, {headers: this.authService.getHeader()});
+      return this.http.get<PersonDetail>('http://localhost:3001/teachers/' + id, {headers: this.authService.getHeader()});
     }
     //return myEmpty;
     return Observable.of({});
@@ -39,7 +38,7 @@ export class CoursesService {
       if (students) {
         students.map(
           (studentId) => {
-            arrayOfStudents.push(this.http.get<Student[]>('http://localhost:3001/students/' + studentId, {headers: this.authService.getHeader()}));
+            arrayOfStudents.push(this.http.get<PersonDetail[]>('http://localhost:3001/students/' + studentId, {headers: this.authService.getHeader()}));
           }
         );
       }

@@ -4,10 +4,10 @@ import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { PpalComponent } from './ppal.component';
+
 import { PpalRoutingModule } from './ppal.routing.module';
-import { TeachersService } from '../services/teachers.service';
-import { StudentsService } from '../services/students.service';
 import { CoursesService } from '../services/courses.service';
+import { PersonDataService } from '../services/person-data.service';
 
 @NgModule({
   imports: [
@@ -20,9 +20,8 @@ import { CoursesService } from '../services/courses.service';
     PpalComponent
   ],
   providers: [
-    StudentsService,
-    TeachersService,
-    CoursesService
+    CoursesService,
+    PersonDataService
   ]
 })
 export class PpalModule { }

@@ -3,26 +3,30 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Response } from '@angular/http/src/static_response';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/merge';
+import 'rxjs/add/operator/mergeMap';
 
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs/Observable';
 import { Person } from '../models/person';
 import { Profile } from '../models/profile';
-import { Student } from '../models/student';
 import { Course } from '../models/course';
+import { PersonDetail } from '../models/person-detail';
 
 @Injectable()
-export class StudentsService {
+export class PersonDataService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  getAll(): Observable<Person[]> {
+  getAll(path): Observable<Person[]> {
     const token = this.authService.getToken();
     const headers = new HttpHeaders({'token': token});
-    return this.http.get<Person[]>('http://localhost:3001/students', {headers: headers});
+    return this.http.get<Person[]>('http://localhost:3001/' + path, {headers: headers});
   }
 
-  getStudentCourses(teacherId: String): Observable<Array<Course>> {
+  getCourses(teacherId: String): Observable<Array<Course>> {
     const arrayOfCourses = [];
     /*coursesIds.map(
       (courseId) => {
@@ -33,25 +37,25 @@ export class StudentsService {
     return Observable.of([]);
   }
 
-  getStudentProfile(profileId: String): Observable<Profile> {
+  getProfile(profileId: String): Observable<Profile> {
     return this.http.get<Profile>('http://localhost:3001/profiles/' + profileId, {headers: this.authService.getHeader()});
   }
 
-  get(id: String): Observable<Student> {
-    const student = this.http.get<Student>('http://localhost:3001/students/' + id, {headers: this.authService.getHeader()});
+  get(id: String, path: String): Observable<PersonDetail> {
+    const person = this.http.get<PersonDetail>('http://localhost:3001/' + path + '/' + id, {headers: this.authService.getHeader()});
 
-    return student
-        .flatMap((studentData: Student) => {
+    return person
+        .flatMap((personData: PersonDetail) => {
           return Observable.forkJoin(
-             Observable.of(studentData),
-             this.getStudentCourses(id),
-             this.getStudentProfile(studentData.profile_id)
+             Observable.of(personData),
+             this.getCourses(id),
+             this.getProfile(personData.profile_id)
           )
             .map((data: any[]) => {
-              let studentDetails = data[0];
-              studentDetails.courses = data[1];
-              studentDetails.profile = data[2];
-              return studentDetails;
+              let personDetails = data[0];
+              personDetails.courses = data[1];
+              personDetails.profile = data[2];
+              return personDetails;
             });
         });
   }

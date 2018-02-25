@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 import { StudentsComponent } from './students.component';
 import { StudentsRoutingModule } from './students.routing.module';
-import { StudentDetailComponent } from './student-detail.component';
+import { AppModule } from '../../app.module';
 
 @NgModule({
   imports: [
@@ -16,7 +16,6 @@ import { StudentDetailComponent } from './student-detail.component';
   ],
   declarations: [
     StudentsComponent,
-    StudentDetailComponent
   ]
 })
 export class StudentsModule { }
