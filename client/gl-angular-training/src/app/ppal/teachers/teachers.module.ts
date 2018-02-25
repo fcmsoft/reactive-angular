@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from '../../shared/shared.module';
-import { TeachersComponent } from './teachers.component';
 import { TeachersRoutingModule } from './teachers.routing.module';
 
 @NgModule({
@@ -13,8 +12,6 @@ import { TeachersRoutingModule } from './teachers.routing.module';
     SharedModule,
     TeachersRoutingModule
   ],
-  declarations: [
-    TeachersComponent
-  ]
+  declarations: [ ]
 })
 export class TeachersModule { }

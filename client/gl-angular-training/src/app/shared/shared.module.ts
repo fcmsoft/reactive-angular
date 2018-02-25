@@ -13,13 +13,17 @@ import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, Covale
     CovalentNotificationsModule, CovalentMenuModule, CovalentDataTableModule, CovalentMessageModule } from '@covalent/core';
 
 import { PersonDetailComponent } from './person-detail.component';
+import { PersonListComponent } from './person-list.component';
 
+import { RouterModule } from '@angular/router';
 @NgModule({
     declarations: [
-        PersonDetailComponent
+        PersonDetailComponent,
+        PersonListComponent
     ],
     imports: [
         CommonModule,
+        RouterModule,
         /** Material Modules */
         MatButtonModule,
         MatListModule,
