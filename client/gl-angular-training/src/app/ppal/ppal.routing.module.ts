@@ -12,7 +12,8 @@ const routes: Routes = [
     { path: 'dashboard', loadChildren: './home/home.module#HomeModule' },
     { path: 'courses', loadChildren: './courses/courses.module#CoursesModule' },
     { path: 'students', loadChildren: './students/students.module#StudentsModule' },
-    { path: 'teachers', loadChildren: './teachers/teachers.module#TeachersModule'  }
+    { path: 'teachers', loadChildren: './teachers/teachers.module#TeachersModule'  },
+    { path: 'account', loadChildren: './account/account.module#AccountModule'  }
   ]}
 ];
 

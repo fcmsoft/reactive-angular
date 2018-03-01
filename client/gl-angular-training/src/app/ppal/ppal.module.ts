@@ -8,6 +8,7 @@ import { PpalComponent } from './ppal.component';
 import { PpalRoutingModule } from './ppal.routing.module';
 import { CoursesService } from '../services/courses.service';
 import { PersonDataService } from '../services/person-data.service';
+import { AccountService } from '../services/account.service';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { PersonDataService } from '../services/person-data.service';
   ],
   providers: [
     CoursesService,
-    PersonDataService
+    PersonDataService,
+    AccountService
   ]
 })
 export class PpalModule { }

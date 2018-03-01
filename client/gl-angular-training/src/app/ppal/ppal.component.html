@@ -8,7 +8,7 @@
       <span flex></span>
       <button mat-icon-button><mat-icon>notifications</mat-icon></button>
       <mat-menu #accountMenu="matMenu">
-        <button mat-menu-item> Account </button>
+        <button mat-menu-item routerLink="/account"> Account </button>
         <button mat-menu-item (click)="logout()"> LogOut </button>
       </mat-menu>
       <button mat-icon-button [matMenuTriggerFor]="accountMenu"><mat-icon>account_circle</mat-icon></button>
