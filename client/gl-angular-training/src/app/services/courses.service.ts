@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Response } from '@angular/http/src/static_response';
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/toArray';
 import { map } from 'rxjs/operators';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/forkJoin';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/merge';
+import 'rxjs/add/observable/from';
+
 
 import { AuthService } from './auth.service';
 import { HttpClient } from '@angular/common/http';
@@ -28,24 +31,13 @@ export class CoursesService {
     if (active) {
       return this.http.get<PersonDetail>('http://localhost:3001/teachers/' + id, {headers: this.authService.getHeader()});
     }
-    //return myEmpty;
     return Observable.of({});
   }
 
-  getCourseStudents(active: Boolean, students: String[]): any {
-    if (active) {
-      const arrayOfStudents = [];
-      if (students) {
-        students.map(
-          (studentId) => {
-            arrayOfStudents.push(this.http.get<PersonDetail[]>('http://localhost:3001/students/' + studentId, {headers: this.authService.getHeader()}));
-          }
-        );
-      }
-    return Observable.merge(...arrayOfStudents);
-    }
-    return Observable.of([]);
-
+  getCourseStudents(active: Boolean, students: String[]): Observable<PersonDetail[]> {
+    return Observable.from(students).flatMap(
+        (id) => this.http.get<PersonDetail>('http://localhost:3001/students/' + id, {headers: this.authService.getHeader()})
+    ).toArray();
   }
 
   get(id: String): Observable<Course> {
@@ -58,10 +50,11 @@ export class CoursesService {
              this.getCourseTeacher(courseData.active, courseData.teacher),
              this.getCourseStudents(courseData.active, courseData.students)
           )
-            .map((data: any[]) => { console.log(data[2]);
+            .map((data: any[]) => {
               let courseDetails = data[0];
               courseDetails.teacherDetails = data[1];
               courseDetails.studentsDetails = data[2];
+
               return courseDetails;
             });
         });

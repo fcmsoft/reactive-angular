@@ -10,17 +10,18 @@ import { PersonDataService } from '../services/person-data.service';
 export class PersonListComponent implements OnInit {
   data;
   path;
+  title;
+  addButtonText;
   constructor(private dataService: PersonDataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
     this.route.parent.url.subscribe(
       (url) => {
         this.path = url[0].path;
+        this.title = this.path.charAt(0).toUpperCase() + this.path.slice(1);
+        this.addButtonText = 'Add new ' + this.path.slice(0, -1);
         this.data = this.dataService.getAll(this.path);
-
       }
     );
   }
-
 }

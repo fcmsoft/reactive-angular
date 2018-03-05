@@ -1,19 +1,25 @@
-<mat-card *ngIf="this.data">
-    <mat-card-title>{{this.title}}</mat-card-title>
+<mat-card *ngIf="data">
+    <mat-card-title>{{title}}</mat-card-title>
     <mat-card-content>
-        <h2>{{this.data.first_name}} {{this.data.last_name}}</h2>
-        <p>Email: {{this.data.email}}</p>
-        <p>Birthday: {{this.data.profile.birthday | date:short}}</p>
+        <h2>{{data.first_name}} {{data.last_name}}</h2>
+        <p>Email: {{data.email}}</p>
+        <p>Birthday: {{data.profile.birthday | date:short}}</p>
         <hr>
         <h3>Contact</h3>
-        <p>Street: {{this.data.profile.contact.street}}</p>
-        <p>State: {{this.data.profile.contact.state}}</p>
-        <p>Country: {{this.data.profile.contact.country}}</p>
-        <p>City: {{this.data.profile.contact.city}}</p>
-        <p>Zip: {{this.data.profile.contact.zip}}</p>
-        <p>Phone: {{this.data.profile.contact.phone}}</p>
+        <p>Street: {{data.profile.contact.street}}</p>
+        <p>State: {{data.profile.contact.state}}</p>
+        <p>Country: {{data.profile.contact.country}}</p>
+        <p>City: {{data.profile.contact.city}}</p>
+        <p>Zip: {{data.profile.contact.zip}}</p>
+        <p>Phone: {{data.profile.contact.phone}}</p>
         <hr>
-
+        <h3>Courses</h3>
+        <mat-nav-list flex>
+            <a mat-list-item routerLink="/courses/{{item.id}}" *ngFor="let item of data.courses; let i = index">
+              <h4 matLine class="cursor-pointer"> {{item.title}}  </h4>
+              <p matLine class="cursor-pointer"> {{item.short_description}}  </p>
+            </a>
+        </mat-nav-list>
     </mat-card-content>
 </mat-card>
 

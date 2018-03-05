@@ -21,7 +21,7 @@ export class PersonDetailComponent implements OnInit {
         this.path = url[0].path;
         this.personDataService.get(id, this.path).subscribe(
           (data) => {
-            this.data = data;
+            this.data = data; console.log(this.data);
           }
         );
         this.title = this.path === 'students' ? 'Student Details' : 'Teacher Details';

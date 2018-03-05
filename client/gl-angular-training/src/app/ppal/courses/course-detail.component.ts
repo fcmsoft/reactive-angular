@@ -11,13 +11,15 @@ import { CoursesService } from '../../services/courses.service';
 export class CourseDetailComponent implements OnInit {
 
   course;
+  students;
   constructor(private coursesService: CoursesService, private route: ActivatedRoute  ) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.coursesService.get(id).subscribe(
-      (course) => { console.log(course);
+      (course) => {
         this.course = course;
+        this.students = this.course.studentsDetails;
       }
     );
 

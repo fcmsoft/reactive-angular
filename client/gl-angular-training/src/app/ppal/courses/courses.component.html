@@ -1,5 +1,9 @@
 <div tdMediaToggle="gt-xs" [mediaClasses]="['push-md']">
+
   <mat-card>
+    <mat-card-title>
+      Courses
+    </mat-card-title>
     <mat-nav-list flex>
         <a mat-list-item routerLink="/courses/{{item.id}}" *ngFor="let item of courses | async; let i = index">
           <mat-icon *ngIf="item.active">check</mat-icon>
@@ -11,3 +15,6 @@
     </mat-nav-list>
   </mat-card>
 </div>
+<a mat-fab color="accent" matTooltip="Add new Course" matTooltipPosition="before" class="mat-fab-bottom-right z-3 fixed fab-pad">
+    <mat-icon>add</mat-icon>
+</a>

@@ -7,7 +7,7 @@ export interface Course {
     title: String;
     short_description: String;
     detail: String;
-    active: Boolean;
+    active: boolean;
     teacher?: String;
     teacherDetails?: {} | Person;
     students: Array<String>;

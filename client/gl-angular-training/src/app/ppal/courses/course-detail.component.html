@@ -1,35 +1,30 @@
-<mat-card *ngIf="this.course">
+<mat-card *ngIf="course">
     <mat-card-title>Course Detail</mat-card-title>
     <mat-card-content>
-        <h2>{{this.course.title}}</h2>
-        <p>{{this.course.short_description}}</p>
+        <h2>{{course.title}}</h2>
+        <p>{{course.short_description}}</p>
         <hr>
-        <p>{{this.course.detail}}</p>
+        <p>{{course.detail}}</p>
         <hr>
         <p>Active:
-                <mat-icon *ngIf="this.course.active">check</mat-icon>
-                <mat-icon *ngIf="!this.course.active">cancel</mat-icon>
+                <mat-icon *ngIf="course.active">check</mat-icon>
+                <mat-icon *ngIf="!course.active">cancel</mat-icon>
         </p>
         <hr>
-        <div *ngIf="this.course.active">
+        <div *ngIf="course.active">
             <h3>Teacher:</h3>
-            <p>{{this.course.teacherDetails.last_name}}, {{this.course.teacherDetails.first_name}}</p>
+            <p>{{course.teacherDetails.last_name}}, {{course.teacherDetails.first_name}}</p>
         </div>
-        <hr *ngIf="this.course.active">
-        <!--<div *ngIf="this.course.active">
+        <hr *ngIf="course.active">
+        <div *ngIf="course.active">
             <h3>Students:</h3>
             <div tdMediaToggle="gt-xs" [mediaClasses]="['push-md']">
-                <mat-card>
-                  <mat-nav-list flex>
-                      <a mat-list-item *ngFor="let item of this.course.studentsDetails; let i = index">
-                        <img matListAvatar src="https://api.adorable.io/avatars/285/{{i}}@adorable.io.png" />
-                        <h4 matLine class="cursor-pointer"> {{item.first_name}} {{item.last_name}} </h4>
-                        <span flex="100" class="mat-caption tc-grey-600">{{item.email}}</span>
-                      </a>
-                  </mat-nav-list>
-                </mat-card>
+                        <gl-list
+                            [list]=students
+                            path='students'>
+                        </gl-list>
               </div>
-        </div>-->
+        </div>
     </mat-card-content>
 </mat-card>
 

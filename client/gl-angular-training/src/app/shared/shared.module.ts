@@ -12,14 +12,20 @@ import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, Covale
     CovalentStepsModule, CovalentLoadingModule, CovalentDialogsModule, CovalentSearchModule, CovalentPagingModule,
     CovalentNotificationsModule, CovalentMenuModule, CovalentDataTableModule, CovalentMessageModule } from '@covalent/core';
 
+import { CovalentDynamicFormsModule } from '@covalent/dynamic-forms';
+
 import { PersonDetailComponent } from './person-detail.component';
 import { PersonListComponent } from './person-list.component';
+import { PersonFormComponent } from './person-form.component';
+import { ListComponent } from './list.component';
 
 import { RouterModule } from '@angular/router';
 @NgModule({
     declarations: [
         PersonDetailComponent,
-        PersonListComponent
+        PersonListComponent,
+        ListComponent,
+        PersonFormComponent
     ],
     imports: [
         CommonModule,
@@ -31,7 +37,7 @@ import { RouterModule } from '@angular/router';
         MatCardModule,
         MatMenuModule,
         MatInputModule,
-        // MatSelectModule,
+        MatSelectModule,
        // MatButtonToggleModule,
        // MatSlideToggleModule,
        // MatProgressSpinnerModule,
@@ -59,6 +65,7 @@ import { RouterModule } from '@angular/router';
      //   CovalentSearchModule,
      //   CovalentPagingModule,
       //  CovalentNotificationsModule,
+        CovalentDynamicFormsModule,
         CovalentMenuModule,
      //   CovalentDataTableModule,
      //   CovalentMessageModule,
@@ -72,7 +79,7 @@ import { RouterModule } from '@angular/router';
         MatCardModule,
         MatMenuModule,
         MatInputModule,
-        // MatSelectModule,
+        MatSelectModule,
        // MatButtonToggleModule,
        // MatSlideToggleModule,
        // MatProgressSpinnerModule,
@@ -103,7 +110,7 @@ import { RouterModule } from '@angular/router';
         CovalentMenuModule,
      //   CovalentDataTableModule,
      //   CovalentMessageModule,
-
+        ListComponent,
         HttpClientModule
     ],
     providers: [],
