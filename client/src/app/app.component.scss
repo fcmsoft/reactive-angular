@@ -1,0 +1,53 @@
+@import "../_queries.scss";
+header {
+    .mat-toolbar {
+        @include respond(tab-port) {
+            font-size: 12px;
+        }
+    }
+
+    .title {
+        color: #080e64;
+    }
+    .links {
+        padding: 10px 10px;
+        text-decoration: none;
+        @include respond(tab-port) {
+          padding: 5px;
+        }
+    }
+    .user-group {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: row;
+        width: 100%;
+        @include respond(tab-port) {
+          display: block;
+          position: absolute;
+          top: 30px;
+          float: right;
+        }
+        .material-icons {
+          @include respond(tab-port) {
+            font-size: 12px;
+          }
+        }
+    }
+    .user-item {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .form {
+      font-size: 14px;
+      margin-left: 120px;
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+      .search-input {
+          width: 100%;
+      }
+    }
+}
+

@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-title>Cursos</mat-card-title>
+  <mat-table [dataSource]="courses | async">
+
+      <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef> Titulo </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="short_description">
+          <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.short_description}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="active">
+          <mat-header-cell *matHeaderCellDef> Activo </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-icon *ngIf="element.active">done</mat-icon>
+            <mat-icon *ngIf="!element.active">clear</mat-icon>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row
+          *matRowDef="let row; columns: displayedColumns;"
+          [routerLink]="['detail', row.id]">
+        </mat-row>
+    </mat-table>
+</mat-card>

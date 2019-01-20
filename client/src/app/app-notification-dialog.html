@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Notificación</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>De: {{data.alert.from}}</h3>
+  <p>Email: {{data.alert.email}}</p>
+  <p>Fecha: {{data.alert.date | date}}</p>
+  <p>{{data.alert.message}}.</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

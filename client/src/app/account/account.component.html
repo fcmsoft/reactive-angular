@@ -1,0 +1,14 @@
+<mat-card *ngIf="data | async as data; else loading">
+  <mat-card-header>
+    <mat-card-title><h3>Cuenta de usuario:</h3></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div><label>Nombre:</label> {{data.name}}</div>
+    <div><label>Email:</label> {{data.email}}</div>
+    <div><label>Rol:</label> {{data.rol}}</div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #loading>
+    Loading stuff...
+</ng-template>

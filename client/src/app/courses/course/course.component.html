@@ -1,0 +1,55 @@
+<mat-card *ngIf="detail$ | async as detail; else loading">
+    <mat-card-header>
+      <mat-card-title><h3>{{detail.title}}</h3></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{detail.detail}}
+      </p>
+      <div class="info">
+        <label>Estado:</label> {{detail.active ? 'Activo' : 'Cerrado'}}
+      </div>
+      <div *ngIf="detail.active">
+        <div class="info">
+          <label>Profesor: </label> {{detail.teacherDetails.last_name}}, {{detail.teacherDetails.first_name}}
+        </div>
+        <div class="info">
+            <mat-accordion>
+              <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Alumnos:
+                  </mat-panel-title>
+                  <mat-panel-description>
+
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-table [dataSource]="detail.studentsDetails">
+                    <ng-container matColumnDef="nombre">
+                        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.first_name}} {{element.last_name}} </mat-cell>
+                      </ng-container>
+
+                      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                      <mat-row
+                        *matRowDef="let row; columns: displayedColumns;"
+                        [routerLink]="['/alumnos/detail', row.id]">
+                      </mat-row>
+                  </mat-table>
+              </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+
+  <ng-template #loading>
+      Loading stuff...
+  </ng-template>
+
+<div class="back-link" >
+  <a [routerLink]="['/cursos']" ><< Volver</a>
+</div>
+

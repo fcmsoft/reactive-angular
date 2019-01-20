@@ -1,0 +1,40 @@
+<mat-card *ngIf="detail | async as detail; else loading">
+  <mat-card-header>
+    <mat-card-title><h3>{{detail.first_name}} {{detail.last_name}}</h3></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div><label>Email:</label> {{detail.email}}</div>
+    <div><label>Email Secundario:</label> {{detail.profile.secondary_email}}</div>
+    <div><label>Fecha de Nacimiento:</label> {{detail.profile.birthday | date}}</div>
+    <div>
+      <mat-card>
+          <label>Información de Contacto:</label>
+          <p>{{detail.profile.contact.city}}, {{detail.profile.contact.state}}, {{detail.profile.contact.country}}</p>
+          <p>Código Postal: {{detail.profile.contact.zip}}</p>
+          <p>Calle: {{detail.profile.contact.street}}</p>
+          <p>Teléfono: {{detail.profile.contact.phone}}</p>
+      </mat-card>
+    </div>
+    <mat-card>
+        <mat-card-title>Cursos</mat-card-title>
+        <mat-table [dataSource]="detail.courses">
+
+            <ng-container matColumnDef="title">
+                <mat-header-cell *matHeaderCellDef> Titulo </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row
+                *matRowDef="let row; columns: displayedColumns;"
+                (click)="goToCourse(row.id)">
+              </mat-row>
+          </mat-table>
+      </mat-card>
+
+  </mat-card-content>
+</mat-card>
+
+<ng-template #loading>
+  Loading stuff...
+</ng-template>

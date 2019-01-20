@@ -1,0 +1,28 @@
+@import "queries";
+
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+html {
+    font-size: 14px; // 1 rem = 10px; 10px/16px = 62.5%
+
+    @include respond(phone) {
+        font-size: 12px;
+    }
+}
+
+mat-row {
+  cursor: pointer;
+}
+
+.back-link {
+  margin: 20px;
+  a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+}

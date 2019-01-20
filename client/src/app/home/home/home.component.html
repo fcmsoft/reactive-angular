@@ -1,0 +1,15 @@
+<div class="container">
+  <mat-card>
+    <h2>Contamos con <a class="links" routerLink="/cursos" routerLinkActive="active"> {{cantCourses | async}} Cursos</a> activos</h2>
+  </mat-card>
+  <mat-card>
+    <h2>Contamos con <a class="links" routerLink="/alumnos" routerLinkActive="active"> {{cantStudents | async}} Alumnos</a> cursando</h2>
+  </mat-card>
+  <mat-card>
+    <h2><a class="links" routerLink="/profesores" routerLinkActive="active"> {{cantTeachers | async}} Profesores</a> dictando cursos</h2>
+  </mat-card>
+  <mat-card>
+    <h2 *ngIf="courseWithMoreInscripts | async as course">Curso con más Inscriptos: <a class="links" [routerLink]="['/cursos/detail',course.id]" routerLinkActive="active">  {{course.title}}</a> </h2>
+  </mat-card>
+</div>
+

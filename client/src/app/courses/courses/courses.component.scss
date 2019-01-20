@@ -1,0 +1,27 @@
+@import "../../../_queries.scss";
+.mat-column-active {
+    flex: 0 0 100px;
+}
+.mat-card-title {
+  @include respond(tab-port) {
+    font-size: 14px;
+  }
+}
+.mat-header-cell {
+  @include respond(tab-port) {
+    font-size: 9px;
+  }
+}
+.mat-cell {
+  @include respond(tab-port) {
+    font-size: 8px;
+  }
+}
+
+:host {
+  @include respond(tab-port) {
+    width: 300px;
+  }
+}
+
+

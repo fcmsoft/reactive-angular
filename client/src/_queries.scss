@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 600px) { @content };
+    }
+    @if $breakpoint == tab-port {
+        @media (max-width: 900px) { @content };
+    }
+    @if $breakpoint == tab-land {
+        @media (max-width: 1200px) { @content };
+    }
+    @if $breakpoint == big-desktop {
+        @media (max-width: 1800px) { @content };
+    }
+}
+.mat-card {
+  @include respond(tab-port) {
+   padding: 10px;
+  }
+}
+.mat-table .mat-column-active {
+  @include respond(tab-port) {
+    flex: 0 0 40px;
+  }
+}
+.mat-cell:first-of-type {
+  @include respond(tab-port) {
+    padding-left: 10px;
+  }
+}
+.notification {
+  padding: 3px;
+  border-bottom: #080e64 1px solid;
+  list-style: none;
+  a {
+    cursor: pointer;
+  }
+}
+.notification.unread {
+  background-color: pink;
+}
+.notifications {
+  margin: 0;
+  padding: 0;
+}

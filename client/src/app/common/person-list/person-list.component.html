@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>{{title}}</mat-card-title>
+  <mat-table [dataSource]="list | async">
+
+      <ng-container matColumnDef="nombre">
+          <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+          <mat-cell *matCellDef="let element" > {{element.first_name}} {{element.last_name}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
+          <mat-cell *matCellDef="let element" > {{element.email}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row
+          *matRowDef="let row; columns: displayedColumns;"
+          (click)="goToDetail(row.id)">
+        </mat-row>
+    </mat-table>
+</mat-card>

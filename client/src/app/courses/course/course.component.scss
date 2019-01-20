@@ -1,0 +1,12 @@
+@import "../../../_queries.scss";
+.info {
+  margin-top: 20px;
+  label {
+    font-weight: bold;
+  }
+}
+.mat-card-title {
+  @include respond(tab-port) {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-title>Resultados de Búsqueda</mat-card-title>
+  <mat-card-content *ngIf="results | async as results; else loading">
+    <div *ngFor="let result of results">
+        <div *ngIf="result.list.length">
+            <h3>{{result.title}}: </h3>
+            <ul>
+              <li *ngFor="let item of result.list">
+                <a [routerLink]="[item.path, item.id]">{{getTextResult(item)}}</a>
+              </li>
+            </ul>
+        </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #loading>
+    Loading stuff...
+</ng-template>
